@@ -13,7 +13,7 @@ let package = Package(
     targets: [
         .target(name: "cmark-gfm",
                 cSettings: [
-                    .headerSearchPath("private_include"),
+                    .headerSearchPath("./private_include"),
                     .unsafeFlags([
                         "-DCMARK_GFM_VERSION_MAJOR=\(major)",
                         "-DCMARK_GFM_VERSION_MINOR=\(minor)",
