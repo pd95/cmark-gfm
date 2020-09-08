@@ -13,6 +13,13 @@ class cmarkTest: XCTestCase {
         return nil
     }
     
+    func testVersion() {
+        let versionString = cmark_version_string()
+        let version = cmark_version()
+        print("Version: \(String(cString: versionString!)), as Int: \(String(format: "%08x", version))")
+        XCTAssert(versionString != nil, "Version could be read")
+    }
+
     func testHeader1() {
         let markdown = "# Header 1"
         let html = renderMarkdown(markdown)

@@ -14,12 +14,10 @@ let package = Package(
         .target(name: "cmark-gfm",
                 cSettings: [
                     .headerSearchPath("./private_include"),
-                    .unsafeFlags([
-                        "-DCMARK_GFM_VERSION_MAJOR=\(major)",
-                        "-DCMARK_GFM_VERSION_MINOR=\(minor)",
-                        "-DCMARK_GFM_VERSION_PATCH=\(patch)",
-                        "-DCMARK_GFM_VERSION_BUILD=\(build)"
-                    ])
+                    .define("CMARK_GFM_VERSION_MAJOR", to: "\(major)"),
+                    .define("CMARK_GFM_VERSION_MINOR", to: "\(minor)"),
+                    .define("CMARK_GFM_VERSION_PATCH", to: "\(patch)"),
+                    .define("CMARK_GFM_VERSION_BUILD", to: "\(build)"),
                 ]
         ),
         .testTarget(
